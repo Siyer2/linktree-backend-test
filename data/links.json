@@ -1,0 +1,41 @@
+[
+  {
+    "id": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
+    "redirectLink": "https://me.com",
+    "title": "48H",
+    "dateCreated": "2022-03-25T10:56:14.319Z",
+    "userId": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
+    "linkType": "classic"
+  },
+  {
+    "id": "eadc61a8-ae0d-4f98-9070-266a8720fe7d",
+    "title": "Music",
+    "dateCreated": "2022-03-25T10:56:14.319Z",
+    "userId": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
+    "linkType": "musicPlayer",
+    "linkTypeSpecificData": [
+      { "platform": "spotify", "redirectLink": "spotify.com/song" },
+      { "platform": "apple", "redirectLink": "apple.com/song" }
+    ]
+  },
+  {
+    "id": "8c7df6e7-7db9-418f-8e73-90774c21937c",
+    "redirectLink": "https://shows.com",
+    "title": "Shows",
+    "dateCreated": "2022-03-25T10:56:14.319Z",
+    "userId": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
+    "linkType": "showsList",
+    "linkTypeSpecificData": [
+      { "showStatus": "soldOut", "venue": "The Forum", "redirectLink": "https://shows.com/forum" },
+      { "showStatus": "notOnSale", "venue": "The Center", "redirectLink": "https://shows.com/center" }
+    ]
+  },
+  {
+    "id": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
+    "redirectLink": "https://me.com",
+    "title": "48H",
+    "dateCreated": "2022-03-25T10:56:14.319Z",
+    "userId": "eadc61a8-ae0d-4f98-9070-266a8720fe7d",
+    "linkType": "classic"
+  }
+]
