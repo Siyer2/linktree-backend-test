@@ -6,25 +6,27 @@ enum LinkType {
   MusicPlayer = "musicPlayer",
 }
 
-type LinkTypeSpecificData = any;
+interface LinkTypeSpecificData {
+  redirectLink: string;
+}
 
 export class Link {
   id: string;
-  redirectLink: string;
+  redirectLink?: string;
   title: string;
   dateCreated: Date;
   user: User;
   linkType: LinkType;
-  linkTypeSpecificData: LinkTypeSpecificData;
+  linkTypeSpecificData?: LinkTypeSpecificData;
 
   constructor(input: {
     id: string;
-    redirectLink: string;
+    redirectLink?: string;
     title: string;
     dateCreated: Date;
     user: User;
     linkType: LinkType;
-    linkTypeSpecificData: LinkTypeSpecificData;
+    linkTypeSpecificData?: LinkTypeSpecificData;
   }) {
     this.id = input.id;
     this.redirectLink = input.redirectLink;
