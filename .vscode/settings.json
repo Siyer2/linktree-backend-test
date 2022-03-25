@@ -1,0 +1,18 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        "javascript"
+    ],
+    "files.exclude": {
+        "node_modules/": true,
+        "dist/": true,
+        "_build": true,
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "jestrunner.codeLensSelector": "**/*.{test,spec,e2e-spec}.{js,jsx,ts,tsx}",
+    "jestrunner.jestCommand": "ERROR_TOPIC_ARN=fake DEPLOYMENT=E2E DYNAMO_PREFIX=E2E POSTGRES_DATABASE=loopplus_e2e TZ=UTC jest --config ./test/jest-e2e.json --runInBand"
+}
