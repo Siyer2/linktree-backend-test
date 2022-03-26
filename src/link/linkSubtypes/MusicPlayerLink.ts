@@ -1,7 +1,7 @@
-import { Link, LinkTypeSpecificData } from "../link.entity";
+import { LinkTypeSpecificData } from "../link.entity";
 import { BaseLink, ResultReturn, ResultStatus } from "./baseLink";
 
-export enum MusicPlatform {
+enum MusicPlatform {
   Spotify = "spotify",
   AppleMusic = "appleMusic",
 }
@@ -10,33 +10,28 @@ interface SongLink extends LinkTypeSpecificData {
   platform: MusicPlatform;
 }
 
-export class MusicPlayer extends BaseLink {
-  validate(input: Partial<Link>): ResultReturn {
-    const baseValidationResult = super.baseValidate(input);
+export class MusicPlayerLink extends BaseLink {
+  validate(): ResultReturn {
+    const baseValidationResult = super.baseValidate();
     if (baseValidationResult.result === ResultStatus.Failure) {
       return baseValidationResult;
     }
 
     // Ensure that linkTypeSpecificData is present
-    if (!input.linkTypeSpecificData || !input.linkTypeSpecificData.length) {
+    if (!this.linkTypeSpecificData || !this.linkTypeSpecificData.length) {
       return {
         result: ResultStatus.Failure,
         errorMessage:
-          "A non-empty 'songLinks' array is a required parameter when creating a MusicPlayer link",
+          "A non-empty 'linkTypeSpecificData' array is a required parameter when creating a MusicPlayer link",
         error: "INVALID_INPUT",
       };
     }
 
     // Ensure that each song link has a valid platform
     let error = "";
-    const songLinks = input.linkTypeSpecificData as SongLink[];
+    const songLinks = this.linkTypeSpecificData as SongLink[];
     songLinks.forEach((songLink) => {
-      if (
-        ![MusicPlatform.Spotify, MusicPlatform.AppleMusic].includes(
-          songLink.platform
-        ) ||
-        !songLink.redirectLink
-      ) {
+      if (!Object.values(MusicPlatform).includes(songLink.platform)) {
         error = JSON.stringify(songLink);
       }
     });
