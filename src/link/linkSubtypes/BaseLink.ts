@@ -26,27 +26,6 @@ export abstract class BaseLink extends Link {
       };
     }
 
-    // If there is linkTypeSpecificData, validate it
-    if (this.linkTypeSpecificData) {
-      this.linkTypeSpecificData.forEach((individualLink) => {
-        if (!individualLink.redirectLink) {
-          return {
-            result: ResultStatus.Failure,
-            error: "INVALID_INPUT",
-            errorMessage: "Missing redirect link",
-          };
-        }
-
-        if (!individualLink.title || individualLink.title.length > 144) {
-          return {
-            result: ResultStatus.Failure,
-            error: "INVALID_INPUT",
-            errorMessage: `Invalid title: ${individualLink.title}`,
-          };
-        }
-      });
-    }
-
     return {
       result: ResultStatus.Success,
     };

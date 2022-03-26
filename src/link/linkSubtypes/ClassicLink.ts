@@ -15,6 +15,14 @@ export class ClassicLink extends BaseLink {
       };
     }
 
+    if (this.linkTypeSpecificData) {
+      return {
+        result: ResultStatus.Failure,
+        error: "INVALID_INPUT",
+        errorMessage: "Classic link cannot have linkTypeSpecificData",
+      };
+    }
+
     return {
       result: ResultStatus.Success,
     };

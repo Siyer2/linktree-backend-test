@@ -27,11 +27,16 @@ export class MusicPlayerLink extends BaseLink {
       };
     }
 
-    // Ensure that each song link has a valid platform
+    // Validate song links
     let error = "";
     const songLinks = this.linkTypeSpecificData as SongLink[];
     songLinks.forEach((songLink) => {
-      if (!Object.values(MusicPlatform).includes(songLink.platform)) {
+      if (
+        !Object.values(MusicPlatform).includes(songLink.platform) ||
+        !songLink.redirectLink ||
+        !songLink.title ||
+        songLink.title.length > 144
+      ) {
         error = JSON.stringify(songLink);
       }
     });
