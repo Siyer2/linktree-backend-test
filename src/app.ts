@@ -8,7 +8,6 @@ import { ShowListLink } from "./link/linkSubtypes/ShowListLink";
 import { getUserById } from "./user/user.service";
 
 const app = express();
-const PORT = 3000;
 
 app.use(express.json());
 
@@ -90,6 +89,4 @@ app.get("/user/:userId/link", (request: Request, response: Response) => {
   return response.json(links);
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
-});
+export default app;
