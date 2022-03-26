@@ -25,7 +25,7 @@
     "title": "Shows",
     "dateCreated": "2021-03-25T10:56:14.319Z",
     "userId": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
-    "linkType": "showsList",
+    "linkType": "showList",
     "linkTypeSpecificData": [
       { "showStatus": "soldOut", "venue": "The Forum", "redirectLink": "https://shows.com/forum", "title": "Apr 01, 2019" },
       { "showStatus": "notOnSale", "venue": "The Center", "redirectLink": "https://shows.com/center", "title": "Apr 02, 2019" }

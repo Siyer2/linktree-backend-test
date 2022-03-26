@@ -35,7 +35,9 @@ export class ShowListLink extends BaseLink {
     showLinks.forEach((showLink) => {
       if (
         !Object.values(ShowStatus).includes(showLink.showStatus) ||
-        !showLink.redirectLink
+        !showLink.redirectLink ||
+        !showLink.title ||
+        showLink.title.length > 144
       ) {
         error = JSON.stringify(showLink);
       }

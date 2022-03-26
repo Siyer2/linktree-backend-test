@@ -5,8 +5,6 @@ import { Link, LinkType } from "../src/link/link.entity";
 import { ResultReturn } from "../src/link/linkSubtypes/BaseLink";
 
 const USER_ID = "7b6a7baf-7beb-4aad-af54-d880db8fc0f5";
-const TITLE_LONGER_THAN_144 =
-  "hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello";
 
 describe("Music Player Link Tests", () => {
   let server: Server;
