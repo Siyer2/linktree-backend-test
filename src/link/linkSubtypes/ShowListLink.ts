@@ -2,9 +2,9 @@ import { LinkTypeSpecificData } from "../link.entity";
 import { BaseLink, ResultReturn, ResultStatus } from "./baseLink";
 
 enum ShowStatus {
-  SoldOut,
-  NotOnSale,
-  OnSale,
+  SoldOut = "soldOut",
+  NotOnSale = "notOnSale",
+  OnSale = "onSale",
 }
 
 interface ShowLink extends LinkTypeSpecificData {

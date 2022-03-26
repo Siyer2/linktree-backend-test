@@ -15,6 +15,7 @@ export class Link {
   id?: string;
   redirectLink?: string;
   title?: string;
+  subtitle?: string;
   dateCreated: Date;
   user: User;
   linkType: LinkType;
@@ -31,6 +32,7 @@ export class Link {
     this.id = input.id;
     this.redirectLink = input.redirectLink;
     this.title = input.title;
+    this.subtitle = input.subtitle;
     this.dateCreated = new Date();
     this.user = new User(input.user);
     this.linkType = input.linkType;

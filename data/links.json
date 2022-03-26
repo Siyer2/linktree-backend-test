@@ -10,12 +10,13 @@
   {
     "id": "eadc61a8-ae0d-4f98-9070-266a8720fe7d",
     "title": "Music",
+    "subtitle": "Song Name - Artists Name", 
     "dateCreated": "2022-03-25T10:56:14.319Z",
     "userId": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
     "linkType": "musicPlayer",
     "linkTypeSpecificData": [
-      { "platform": "spotify", "redirectLink": "spotify.com/song", "title": "Spotify" },
-      { "platform": "appleMusic", "redirectLink": "apple.com/song", "title": "Apple Music" }
+      { "platform": "spotify", "redirectLink": "spotify.com/song" },
+      { "platform": "appleMusic", "redirectLink": "apple.com/song" }
     ]
   },
   {
