@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "PORT=5923 jest",
+    "test": "PORT=5923 jest --runInBand",
     "start": "ts-node ./src/server.ts"
   },
   "keywords": [],

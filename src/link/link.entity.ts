@@ -28,12 +28,15 @@ export class Link {
     if (!input.linkType) {
       throw "input.linkType cannot be undefined";
     }
+    if (!input.dateCreated) {
+      throw "input.linkType cannot be undefined";
+    }
 
     this.id = input.id;
     this.redirectLink = input.redirectLink;
     this.title = input.title;
     this.subtitle = input.subtitle;
-    this.dateCreated = new Date();
+    this.dateCreated = input.dateCreated;
     this.user = new User(input.user);
     this.linkType = input.linkType;
     this.linkTypeSpecificData = input.linkTypeSpecificData;

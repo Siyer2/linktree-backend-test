@@ -27,6 +27,7 @@ app.post("/user/:userId/link", (request: Request, response: Response) => {
   // Validate link body
   const linkBody: Link = request.body;
   linkBody.user = user;
+  linkBody.dateCreated = new Date();
 
   let validationResult: ResultReturn;
   const linkType: LinkType = request.body.linkType;

@@ -7,14 +7,6 @@ export class ClassicLink extends BaseLink {
       return baseValidationResult;
     }
 
-    if (!this.title) {
-      return {
-        result: ResultStatus.Failure,
-        error: "INVALID_INPUT",
-        errorMessage: "Title is required for a classic link",
-      };
-    }
-
     if (this.linkTypeSpecificData) {
       return {
         result: ResultStatus.Failure,
