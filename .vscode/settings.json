@@ -6,7 +6,6 @@
         "javascript"
     ],
     "files.exclude": {
-        "node_modules/": true,
         "dist/": true,
         "_build": true,
     },

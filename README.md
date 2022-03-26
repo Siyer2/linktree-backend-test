@@ -1,46 +1,44 @@
-# Linktree tech test
-# To run
-- npm install
-- npm run start
+# To Run
+```
+$ npm install
+$ npm run start
+```
 
-# Endpoint
-- POST /generateLink
-- Requires: 'linkType' - this is an int indicating the type (0 for classic, 1 for shows list and 2 for music). I'd imagine the frontend would also use an enum to keep track of this, which is why it was an int
-- Requires: 'userId' - this can be any string
-- Requires: 'linkSpecificData' - this is a dictionary
+This will start the server at port 3000.
 
-curl example of successfully creating a song link: \
-curl --location --request POST 'http://localhost:8080/generateLink' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "linkType": 2, 
-    "linkSpecificData": {
-            "title": "New song!",
-            "songLinks": [
-                { "platform": 0, "platformLink": "spotify.com/song" },
-                { "platform": 1, "platformLink": "apple.com/song" }
-            ]
-        }, 
-    "userId": "myUserId"
-}'
+# To Test
+```
+npm run test
+```
 
- 
-# To test
-- npm install
-- npm run test
+# Schema
+The `data/` directory shows examples of my Schema. I have a Link and a User entity.
 
-## Assumptions I made (note: please let me know if these assumptions are incorrect and I can amend my code)
-- All links (including the show list link and music player link) also require a title under 144 characters
-- Each song link MUST have a supported platform
-- Each show link MUST have a showStatus (e.g. sold out, on sale or not yet on sale)
-- Wasn't sure what the query params for a classic link meant. Did that mean the client could set a query param in the generated link?
-- I didn't store the created links (in a file or a DB) as the spec said not to use a database (but you can see what my schema would've looked like if you go to src/utilities/interfaces.ts and see the Link interface)
-- As there is no storage, there is no function to get the data by userId or dateCreated
+Example Link:
+```
+{
+    "id": "eadc61a8-ae0d-4f98-9070-266a8720fe7d",
+    "title": "Music",
+    "subtitle": "Song Name - Artists Name", 
+    "dateCreated": "2022-03-25T10:56:14.319Z",
+    "userId": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
+    "linkType": "musicPlayer",
+    "linkTypeSpecificData": [
+        { "platform": "spotify", "redirectLink": "spotify.com/song" },
+        { "platform": "appleMusic", "redirectLink": "apple.com/song" }
+    ]
+}
+```
 
-Like I said, sorry if I misunderstood something, I'm happy to take on feedback :) 
+Example User:
+```
+{ 
+    "id": "7b6a7baf-7beb-4aad-af54-d880db8fc0f5", 
+    "firstName": "Syam", 
+    "lastName": "Iyer" 
+}
+```
 
-## Extendability (please have a look at the TODO comments, but I'll write them here too):
-- Move endpoints out of the index file
-- Write a sign up/sign in endpoint and have private endpoints such as /generateLink use a JWT token. Get the user ID from the bearer token rather than as a body param
-- Verify that the random ID is not already in use 
-- Upload newLink to a storage
+# Notes
+1. There are some TODO's in there about what I'd do if I had more time.
+2. The README mentioned 'Some URLs will contain query parameters, some will not.' I assume this means that the redirect link could have query parameters but I was unclear about this and how it would affect the site. As such I've planned to just keep as part of the redirect link.
