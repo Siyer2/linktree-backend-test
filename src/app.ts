@@ -79,7 +79,7 @@ app.get("/user/:userId/link", (request: Request, response: Response) => {
   }
 
   const sort = request.query.sort;
-  if (sort !== "ASC" && sort !== "DESC") {
+  if (sort && sort !== "ASC" && sort !== "DESC") {
     return response.status(400).json({
       error: "INVALID_SORT_PARAM",
       errorMessage: `${sort} is not a valid sort param`,

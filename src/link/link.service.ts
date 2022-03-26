@@ -16,7 +16,7 @@ export function saveLink(link: Link): Link {
   return link;
 }
 
-export function getLinksByUser(userId: string, sort?: "ASC" | "DESC"): Link[] {
+export function getLinksByUser(userId: string, sort?: string): Link[] {
   let usersLinks = links.filter(
     (link) => link.userId === userId
   ) as unknown as Link[];
