@@ -15,7 +15,7 @@
     "linkType": "musicPlayer",
     "linkTypeSpecificData": [
       { "platform": "spotify", "redirectLink": "spotify.com/song" },
-      { "platform": "apple", "redirectLink": "apple.com/song" }
+      { "platform": "appleMusic", "redirectLink": "apple.com/song" }
     ]
   },
   {
