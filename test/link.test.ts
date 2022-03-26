@@ -1,8 +1,9 @@
+import { Server } from "http";
 import request from "supertest";
 import app from "../src/app";
 
 describe("Base Link Tests", () => {
-  let server: any;
+  let server: Server;
 
   beforeAll(() => {
     server = app.listen(process.env.PORT);
