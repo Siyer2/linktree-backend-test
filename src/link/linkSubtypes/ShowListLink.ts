@@ -29,11 +29,16 @@ export class ShowListLink extends BaseLink {
       };
     }
 
-    // Ensure that each show has a valid status and venue
+    // Validate show list
     let error = "";
     const showLinks = this.linkTypeSpecificData as ShowLink[];
     showLinks.forEach((showLink) => {
-      if (!Object.values(ShowStatus).includes(showLink.showStatus)) {
+      if (
+        !Object.values(ShowStatus).includes(showLink.showStatus) ||
+        !showLink.redirectLink ||
+        !showLink.title ||
+        showLink.title.length > 144
+      ) {
         error = JSON.stringify(showLink);
       }
     });
