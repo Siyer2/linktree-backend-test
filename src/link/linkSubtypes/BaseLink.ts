@@ -18,7 +18,7 @@ export abstract class BaseLink extends Link {
 
   baseValidate(): ResultReturn {
     // If there is a title, check that it's less than 144 chars
-    if (this.title && this.title.length > 144) {
+    if (!this.title || this.title.length > 144) {
       return {
         result: ResultStatus.Failure,
         error: "INVALID_INPUT",
