@@ -16,18 +16,9 @@ export enum ResultStatus {
 export abstract class BaseLink extends Link {
   baseURL = BASE_URL;
 
-  baseValidate(input: Partial<Link>): ResultReturn {
-    // Check that title is there
-    if (!input.title) {
-      return {
-        result: ResultStatus.Failure,
-        error: "INVALID_INPUT",
-        errorMessage: "'title' in 'linkSpecificData' is required",
-      };
-    }
-
-    // Check that title is less than 144 characters
-    if (input.title.length > 144) {
+  baseValidate(): ResultReturn {
+    // If there is a title, check that it's less than 144 chars
+    if (this.title && this.title.length > 144) {
       return {
         result: ResultStatus.Failure,
         error: "INVALID_INPUT",
@@ -35,10 +26,31 @@ export abstract class BaseLink extends Link {
       };
     }
 
+    // If there is linkTypeSpecificData, validate it
+    if (this.linkTypeSpecificData) {
+      this.linkTypeSpecificData.forEach((individualLink) => {
+        if (!individualLink.redirectLink) {
+          return {
+            result: ResultStatus.Failure,
+            error: "INVALID_INPUT",
+            errorMessage: "Missing redirect link",
+          };
+        }
+
+        if (!individualLink.title || individualLink.title.length > 144) {
+          return {
+            result: ResultStatus.Failure,
+            error: "INVALID_INPUT",
+            errorMessage: `Invalid title: ${individualLink.title}`,
+          };
+        }
+      });
+    }
+
     return {
       result: ResultStatus.Success,
     };
   }
 
-  abstract validate(input: Partial<Link>): ResultReturn;
+  abstract validate(): ResultReturn;
 }
