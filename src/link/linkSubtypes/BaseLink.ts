@@ -17,8 +17,17 @@ export abstract class BaseLink extends Link {
   baseURL = BASE_URL;
 
   baseValidate(): ResultReturn {
-    // If there is a title, check that it's less than 144 chars
-    if (!this.title || this.title.length > 144) {
+    // Ensure there is a title
+    if (!this.title) {
+      return {
+        result: ResultStatus.Failure,
+        error: "INVALID_INPUT",
+        errorMessage: "A title is required",
+      };
+    }
+
+    // Ensure title is less than 144 chars
+    if (this.title.length > 144) {
       return {
         result: ResultStatus.Failure,
         error: "INVALID_INPUT",
