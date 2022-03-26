@@ -54,7 +54,7 @@ app.post("/user/:userId/link", (request: Request, response: Response) => {
   }
 
   if (validationResult.result === ResultStatus.Failure) {
-    return response.status(404).json({
+    return response.status(400).json({
       error: validationResult.error,
       errorMessage: validationResult.errorMessage,
     });
