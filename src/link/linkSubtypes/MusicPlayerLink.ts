@@ -1,5 +1,5 @@
 import { LinkTypeSpecificData } from "../link.entity";
-import { BaseLink, ResultReturn, ResultStatus } from "./baseLink";
+import { BaseLink, ResultReturn, ResultStatus } from "./BaseLink";
 
 enum MusicPlatform {
   Spotify = "spotify",

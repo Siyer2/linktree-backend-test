@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import { Link, LinkType } from "./link/link.entity";
 import { getLinksByUser, saveLink } from "./link/link.service";
-import { ResultReturn, ResultStatus } from "./link/linkSubtypes/baseLink";
+import { ResultReturn, ResultStatus } from "./link/linkSubtypes/BaseLink";
 import { ClassicLink } from "./link/linkSubtypes/ClassicLink";
 import { MusicPlayerLink } from "./link/linkSubtypes/MusicPlayerLink";
 import { ShowListLink } from "./link/linkSubtypes/ShowListLink";

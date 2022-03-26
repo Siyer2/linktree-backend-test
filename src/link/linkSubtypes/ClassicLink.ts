@@ -1,4 +1,4 @@
-import { BaseLink, ResultReturn, ResultStatus } from "./baseLink";
+import { BaseLink, ResultReturn, ResultStatus } from "./BaseLink";
 
 export class ClassicLink extends BaseLink {
   validate(): ResultReturn {
