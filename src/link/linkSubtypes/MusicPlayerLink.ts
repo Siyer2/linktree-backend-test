@@ -33,9 +33,7 @@ export class MusicPlayerLink extends BaseLink {
     songLinks.forEach((songLink) => {
       if (
         !Object.values(MusicPlatform).includes(songLink.platform) ||
-        !songLink.redirectLink ||
-        !songLink.title ||
-        songLink.title.length > 144
+        !songLink.redirectLink
       ) {
         error = JSON.stringify(songLink);
       }

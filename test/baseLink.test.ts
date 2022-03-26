@@ -1,6 +1,7 @@
 import { Server } from "http";
 import request from "supertest";
 import app from "../src/app";
+import { LinkType } from "../src/link/link.entity";
 import { ResultReturn } from "../src/link/linkSubtypes/BaseLink";
 
 const USER_ID = "7b6a7baf-7beb-4aad-af54-d880db8fc0f5";
@@ -28,7 +29,7 @@ describe("Base Link Tests", () => {
         title: "48H",
         dateCreated: "2020-03-25T10:56:14.319Z",
         userId: "7b6a7baf-7beb-4aad-af54-d880db8fc0f5",
-        linkType: "classic",
+        linkType: LinkType.Classic,
       })
       .expect(404);
 
@@ -61,7 +62,7 @@ describe("Base Link Tests", () => {
       .send({
         redirectLink: "https://me.com",
         dateCreated: "2020-03-25T10:56:14.319Z",
-        linkType: "classic",
+        linkType: LinkType.Classic,
       })
       .expect(400);
 
@@ -76,7 +77,7 @@ describe("Base Link Tests", () => {
       .send({
         redirectLink: "https://me.com",
         dateCreated: "2020-03-25T10:56:14.319Z",
-        linkType: "classic",
+        linkType: LinkType.Classic,
         title: TITLE_LONGER_THAN_144,
       })
       .expect(400);

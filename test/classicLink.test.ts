@@ -1,7 +1,7 @@
 import { Server } from "http";
 import request from "supertest";
 import app from "../src/app";
-import { Link } from "../src/link/link.entity";
+import { Link, LinkType } from "../src/link/link.entity";
 import { ResultReturn } from "../src/link/linkSubtypes/BaseLink";
 
 const USER_ID = "7b6a7baf-7beb-4aad-af54-d880db8fc0f5";
@@ -23,7 +23,7 @@ describe("Base Link Tests", () => {
       .send({
         redirectLink: "https://me.com",
         dateCreated: "2020-03-25T10:56:14.319Z",
-        linkType: "classic",
+        linkType: LinkType.Classic,
         title: "48H",
         linkTypeSpecificData: [
           { platform: "spotify", redirectLink: "spotify.com/song" },
@@ -43,7 +43,7 @@ describe("Base Link Tests", () => {
     const postBody = {
       redirectLink: "https://me.com",
       title: "48H",
-      linkType: "classic",
+      linkType: LinkType.Classic,
     };
     const response = await request(app)
       .post(`/user/${USER_ID}/link`)
