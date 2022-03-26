@@ -7,10 +7,10 @@ export class User {
     this.id = input.id;
 
     if (!input.firstName) {
-      throw new Error("input.firstName cannot be undefined");
+      throw "input.firstName cannot be undefined";
     }
     if (!input.lastName) {
-      throw new Error("input.lastName cannot be undefined");
+      throw "input.lastName cannot be undefined";
     }
     this.firstName = input.firstName;
     this.lastName = input.lastName;

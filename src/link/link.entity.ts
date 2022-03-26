@@ -2,7 +2,7 @@ import { User } from "../user/user.entity";
 
 export enum LinkType {
   Classic = "classic",
-  ShowList = "showsList",
+  ShowList = "showList",
   MusicPlayer = "musicPlayer",
 }
 
@@ -21,20 +21,17 @@ export class Link {
   linkTypeSpecificData?: LinkTypeSpecificData[];
 
   constructor(input: Partial<Link>) {
-    if (!input.dateCreated) {
-      throw new Error("input.dateCreated cannot be undefined");
-    }
     if (!input.user) {
-      throw new Error("input.user cannot be undefined");
+      throw "input.user cannot be undefined";
     }
     if (!input.linkType) {
-      throw new Error("input.linkType cannot be undefined");
+      throw "input.linkType cannot be undefined";
     }
 
     this.id = input.id;
     this.redirectLink = input.redirectLink;
     this.title = input.title;
-    this.dateCreated = input.dateCreated;
+    this.dateCreated = new Date();
     this.user = new User(input.user);
     this.linkType = input.linkType;
     this.linkTypeSpecificData = input.linkTypeSpecificData;
